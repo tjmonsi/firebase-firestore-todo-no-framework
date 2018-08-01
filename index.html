@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo App</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      .card {
+        border: 1px solid black;
+        padding: 24px;
+      }
+
+      .card.center {
+        margin: 24px auto;
+        max-width: 400px;
+      }
+
+      .input {
+        font-size: 16px;
+        border: 0;
+        border-bottom: 1px solid black;
+        display: block;
+        width: 100%;
+        margin: 12px 0;
+      }
+
+      .button {
+        font-size: 16px;
+        display: block;
+        padding: 6px 12px;
+        text-align: center;
+        border-radius: 6px;
+        width: 100%;
+        border: 1px solid black;
+        margin: 12px 0;
+      }
+
+      .todo {
+        margin: 12px 0;
+        padding: 12px;
+        border: 1px solid gray;
+        display: flex;
+      }
+
+      .todo-text {
+        flex: 1;
+      }
+
+      .icon-button {
+        border: 0;
+        border-radius: 50%;
+      }
+
+      .icon {
+        height: 24px;
+        width: 24px;
+      }
+    </style>
+    <script src="/node_modules/firebase/firebase-app.js"></script>
+    <script src="/node_modules/firebase/firebase-auth.js"></script>
+    <script src="/node_modules/firebase/firebase-database.js"></script>
+  </head>
+  <body>
+    <main role="main" id="main">
+    </main>
+
+    <template id="login-template">
+      <div class="card center">
+        <h1>Login</h1>
+        <form class="login-form">
+          <input class="input" placeholder="Email" type="email" name="email" required>
+          <input class="input" placeholder="Password" type="password" name="password" required>
+          
+          <button class="button">Login</button>
+          <button type="button" class="button signup">Sign-up</button>
+        </form>
+      </div>
+    </template>
+
+    <template id="signup-template">
+      <div class="card center">
+        <h1>Signup</h1>
+        <form class="signup-form">
+          <input class="input" placeholder="Email" type="email" name="email" required>
+          <input class="input" placeholder="Password" type="password" name="password" required>
+          <button class="button">Signup</button>
+          <button type="button" class="button signup-cancel">Cancel</button>
+        </form>
+      </div>
+    </template>
+
+    <template id="todo-list-template">
+      <div class="card center">
+        <h1>Todo List</h1>
+        <form class="create-todo-form">
+          <input class="input" placeholder="Todo" name="todo" required>
+          <button class="button">Add</button>
+          <button type="button" class="button signout">Logout</button>
+        </form>     
+        <div class="todo-list">
+
+        </div>   
+      </div>
+    </template>
+
+    <template id="todo-item-template">
+      <div class="todo">
+        <div class="todo-text">
+
+        </div>
+        <button type="button" class="icon-button delete">
+          <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+              <path fill="#000000" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+          </svg>
+        </button>
+      </div>
+    </template>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
